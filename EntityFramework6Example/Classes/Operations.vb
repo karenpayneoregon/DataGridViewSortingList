@@ -11,7 +11,7 @@ Namespace Classes
         Public Function Customers(context As NorthWindAzureContext) As List(Of CustomerEntity)
 
 
-            Dim customerData = (
+            Dim customerEntityList As List(Of CustomerEntity) = (
                     From customer In context.Customers
                     Join contactType In context.ContactTypes On customer.ContactTypeIdentifier Equals contactType.ContactTypeIdentifier
                     Join contact In context.Contacts On customer.ContactId Equals contact.ContactId
@@ -31,7 +31,7 @@ Namespace Classes
                     }).ToList()
 
 
-            Return customerData
+            Return customerEntityList
 
         End Function
 

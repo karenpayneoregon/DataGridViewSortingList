@@ -4,35 +4,31 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{93A6B8E1-6049-4D4B-9A6F-9D5653BE5B8F}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <StartupObject>EntityFramework6Example.My.MyApplication</StartupObject>
-    <RootNamespace>EntityFramework6Example</RootNamespace>
-    <AssemblyName>EntityFramework6Example</AssemblyName>
+    <ProjectGuid>{5121ED30-1C4D-4039-A2DA-3DDACF9772C9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>DataComponentLibrary</RootNamespace>
+    <AssemblyName>DataComponentLibrary</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <MyType>WindowsForms</MyType>
+    <MyType>Windows</MyType>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>EntityFramework6Example.xml</DocumentationFile>
+    <DocumentationFile>DataComponentLibrary.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>EntityFramework6Example.xml</DocumentationFile>
+    <DocumentationFile>DataComponentLibrary.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -48,19 +44,8 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -74,47 +59,13 @@
     <Import Include="System.Collections" />
     <Import Include="System.Collections.Generic" />
     <Import Include="System.Data" />
-    <Import Include="System.Drawing" />
     <Import Include="System.Diagnostics" />
-    <Import Include="System.Windows.Forms" />
     <Import Include="System.Linq" />
     <Import Include="System.Xml.Linq" />
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\CustomerEntity.vb" />
-    <Compile Include="Classes\Operations.vb" />
-    <Compile Include="Forms\ConvertSourceToSortForm.Designer.vb">
-      <DependentUpon>ConvertSourceToSortForm.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\ConvertSourceToSortForm.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EntityClasses\Contact.vb" />
-    <Compile Include="EntityClasses\ContactType.vb" />
-    <Compile Include="EntityClasses\Country.vb" />
-    <Compile Include="EntityClasses\Customer.vb" />
-    <Compile Include="Forms\GenericSortForm.Designer.vb">
-      <DependentUpon>GenericSortForm.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\GenericSortForm.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LanguageExtensions\GenericExtensions.vb" />
-    <Compile Include="Forms\NoSortingByDefaultForm.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\NoSortingByDefaultForm.Designer.vb">
-      <DependentUpon>NoSortingByDefaultForm.vb</DependentUpon>
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LanguageExtensions\DataGridViewExtensions.vb" />
-    <Compile Include="MainForm.Designer.vb">
-      <DependentUpon>MainForm.vb</DependentUpon>
-    </Compile>
-    <Compile Include="MainForm.vb">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="SortableBindingList.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -130,21 +81,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="EntityClasses\NorthWindAzureContext.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Forms\ConvertSourceToSortForm.resx">
-      <DependentUpon>ConvertSourceToSortForm.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\GenericSortForm.resx">
-      <DependentUpon>GenericSortForm.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\NoSortingByDefaultForm.resx">
-      <DependentUpon>NoSortingByDefaultForm.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -153,7 +91,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Information.md" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -163,14 +100,6 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DataComponentLibrary\DataComponentLibrary.vbproj">
-      <Project>{5121ed30-1c4d-4039-a2da-3ddacf9772c9}</Project>
-      <Name>DataComponentLibrary</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
