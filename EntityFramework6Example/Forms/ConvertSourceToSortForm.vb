@@ -26,8 +26,10 @@ Namespace Forms
         End Sub
 
         Private Sub CurrentRowButton_Click(sender As Object, e As EventArgs) Handles CurrentRowButton.Click
+
             Dim currentRow = CType(BindingSource.Current, DataRowView).Row
-            MessageBox.Show($"Current key: {currentRow.Field(Of Integer)("ContactIdentifier")} for customer {currentRow.Field(Of String)("CompanyName")}")
+            MessageBox.Show($"Current key: {currentRow.Field(Of Integer)("ContactIdentifier")} for customer " &
+                            $"{currentRow.Field(Of String)("CompanyName")}")
         End Sub
     End Class
 End Namespace

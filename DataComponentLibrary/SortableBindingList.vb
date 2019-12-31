@@ -20,18 +20,20 @@ Public Class SortableBindingList(Of T)
             Return _SortProperty
         End Get
     End Property
-    Protected Overloads Overrides Sub ApplySortCore(pDescriptor As PropertyDescriptor, pDirection As ListSortDirection)
+    Protected Overloads Overrides Sub ApplySortCore(
+        Descriptor As PropertyDescriptor,
+        Direction As ListSortDirection)
 
         Dim items = TryCast(Me.Items, List(Of T))
 
         If items Is Nothing Then
             IsSorted = False
         Else
-            Dim pCom As New PCompare(Of T)(pDescriptor.Name, pDirection)
+            Dim pCom As New PCompare(Of T)(Descriptor.Name, Direction)
             items.Sort(pCom)
             IsSorted = True
-            SortDirection = pDirection
-            SortProperty = pDescriptor
+            SortDirection = Direction
+            SortProperty = Descriptor
         End If
 
         OnListChanged(New ListChangedEventArgs(ListChangedType.Reset, -1))
@@ -64,9 +66,11 @@ Public Class SortableBindingList(Of T)
         End Sub
         Friend Function Compare(value1 As T, value2 As T) As Integer Implements IComparer(Of T).Compare
 
-            Return If(SortDir = ListSortDirection.Ascending, Comparer.[Default].Compare(PropInfo.GetValue(value1, Nothing),
-                    PropInfo.GetValue(value2, Nothing)), Comparer.[Default].Compare(PropInfo.GetValue(value2, Nothing),
-                                                                               PropInfo.GetValue(value1, Nothing)))
+            Return If(SortDir = ListSortDirection.Ascending,
+                      Comparer.[Default].Compare(PropInfo.GetValue(value1, Nothing),
+                                                 PropInfo.GetValue(value2, Nothing)),
+                      Comparer.[Default].Compare(PropInfo.GetValue(value2, Nothing),
+                                                 PropInfo.GetValue(value1, Nothing)))
 
         End Function
     End Class

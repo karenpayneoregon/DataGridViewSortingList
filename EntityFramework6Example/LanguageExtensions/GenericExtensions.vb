@@ -4,6 +4,7 @@ Imports System.Runtime.CompilerServices
 Namespace LanguageExtensions
 
     Public Module GenericExtensions
+
         <Extension>
         Public Function ToDataTable(Of T)(data As IList(Of T)) As DataTable
             Dim properties As PropertyDescriptorCollection = TypeDescriptor.GetProperties(GetType(T))
@@ -20,5 +21,6 @@ Namespace LanguageExtensions
             Next
             Return table
         End Function
+
     End Module
 End Namespace

@@ -173,7 +173,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="DataScripts.aql" />
+    <Content Include="DataScripts.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
